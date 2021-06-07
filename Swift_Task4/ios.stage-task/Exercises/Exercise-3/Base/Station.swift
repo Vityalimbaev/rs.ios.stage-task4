@@ -18,4 +18,19 @@ enum CallAction {
     case start(from: User, to: User)
     case answer(from: User)
     case end(from: User)
+    
 }
+
+extension CallAction {
+    func get() -> [User] {
+        switch self {
+        case .start(let user1, let user2):
+            return [user1, user2]
+        case .answer(let user):
+            return [user]
+        case .end(let user):
+            return [user]
+        }
+    }
+}
+
